@@ -30,12 +30,7 @@ function App() {
     if(!runningTotal.toString().includes("."))
     setRunningTotal(runningTotal + ".")
   }
-
-  const divideByZero = () => {
-    if (calculatedTotal === Infinity)
-    setCalculatedTotal('NAN');
-
-  }
+  
 
   const clearClick = () => {
     if (runningTotal === 0) {
@@ -101,9 +96,16 @@ function App() {
 
   const divide = (number) => {
     let calculatedNumber = parseFloat(previousTotal) / parseFloat(number);
+    if (calculatedNumber == 'Infinity') {
+      setRunningTotal('NaN')
+    } else {
     setRunningTotal(calculatedNumber);
     setCalculatedTotal(calculatedNumber);
   }
+
+}
+
+
 
   
 
@@ -117,7 +119,6 @@ function App() {
       handleOperator={operatorClick} 
       handleClear={clearClick}
       handleDecimal={handleDecimal}
-      handleZero={divideByZero}
       />
     </div>
   </div>

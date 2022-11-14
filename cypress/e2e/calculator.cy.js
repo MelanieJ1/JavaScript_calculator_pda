@@ -64,22 +64,21 @@ describe("Calculator", () => {
 
 })
 
-it('can multiply by negative numbers', () => {      
+it('can output negative numbers', () => {      
   cy.get('#number4').click();       
-  cy.get('#operator-multiply').click();  
   cy.get('#operator-subtract').click();
-  cy.get('#number2').click();
+  cy.get('#number8').click();
   cy.get('#operator-equals').click();
-  cy.get('#running-total.display').should('contain', '-8')
+  cy.get('#running-total.display').should('contain', '-4')
 
 })
 
-it('can add divide by 0', () => {      
-  cy.get('#number5').click();       
+it('can divide by 0 to give NAN', () => {     
+  cy.get('#number3').click();       
   cy.get('#operator-divide').click();  
   cy.get('#number0').click();
   cy.get('#operator-equals').click();
-  cy.get('#running-total.display').should('contain', 'NAN')
+  cy.get('#running-total.display').should('contain', 'NaN')
 
 })
 
